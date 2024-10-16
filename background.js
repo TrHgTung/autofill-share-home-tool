@@ -1,39 +1,70 @@
 chrome.runtime.onInstalled.addListener(() => {
-    // Tạo context menu khi extension được cài đặt
+    // Tạo context menu gốc
     chrome.contextMenus.create({
-        id: "fillForm",
-        title: "Nội dung Share Home 1",
-        contexts: ["editable"] // Chỉ hiển thị menu khi click chuột phải vào trường input hoặc textarea
+        id: "parentFillForm",
+        title: "Tự động điền dữ liệu (Project 1 - TrHgTung)",
+        contexts: ["editable"] // Chỉ hiện menu khi click chuột phải vào trường input hoặc textarea
     });
-});
 
-// Hàm đọc file JSON từ local storage
-function getFormData(callback) {
+    // Đọc dữ liệu từ file JSON để tạo các mục con trong menu
     fetch(chrome.runtime.getURL('data.json'))
         .then((response) => response.json())
-        .then((data) => callback(data))
+        .then((data) => {
+            // Tạo các mục con trong menu dựa trên nội dung của file JSON
+            chrome.contextMenus.create({
+                id: "fillForm1",
+                parentId: "parentFillForm",
+                title: "Autofill 1",
+                contexts: ["editable"]
+            });
+            chrome.contextMenus.create({
+                id: "fillForm2",
+                parentId: "parentFillForm",
+                title: "Autofill 2",
+                contexts: ["editable"]
+            });
+            chrome.contextMenus.create({
+                id: "fillForm3",
+                parentId: "parentFillForm",
+                title: "Autofill 3",
+                contexts: ["editable"]
+            });
+        })
         .catch((error) => console.error("Error loading form data:", error));
-}
+});
 
-// Xử lý sự kiện khi người dùng chọn "Fill Form" từ context menu
+// Xử lý sự kiện khi người dùng chọn các mục từ context menu
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-    if (info.menuItemId === "fillForm") {
-        getFormData((formData) => {
+    fetch(chrome.runtime.getURL('data.json'))
+        .then((response) => response.json())
+        .then((formData) => {
+            let contentToFill = "";
+
+            // Kiểm tra mục nào được chọn và lấy nội dung tương ứng từ file JSON
+            if (info.menuItemId === "fillForm1") {
+                contentToFill = formData.content1;
+            } else if (info.menuItemId === "fillForm2") {
+                contentToFill = formData.content2;
+            } else if (info.menuItemId === "fillForm3") {
+                contentToFill = formData.content3;
+            }
+
+            // Điền nội dung vào trường input hoặc textarea hiện đang focus
             chrome.scripting.executeScript({
                 target: { tabId: tab.id },
                 function: autofillFocusedInput,
-                args: [formData]
+                args: [contentToFill]
             });
-        });
-    }
+        })
+        .catch((error) => console.error("Error fetching form data:", error));
 });
 
-// Hàm sẽ điền dữ liệu vào trường đang được focus
-function autofillFocusedInput(formData) {
+// Hàm điền nội dung vào trường input hoặc textarea
+function autofillFocusedInput(content) {
     const focusedElement = document.activeElement;
-    if (focusedElement && (focusedElement.tagName === "INPUT" || focusedElement.tagName === "TEXTAREA" || focusedElement.tagName === "DIV" || focusedElement.tagName === "P")) {
-        focusedElement.value = formData.defaultText || "";
+    if (focusedElement && ((focusedElement.tagName === "INPUT" || focusedElement.tagName === "TEXTAREA" || focusedElement.tagName === "DIV" || focusedElement.tagName === "P"))) {
+        focusedElement.value = content || "";
     } else {
-        console.log("Không có trường dữ liệu nào được focús");
+        console.log("No input or textarea is focused");
     }
 }

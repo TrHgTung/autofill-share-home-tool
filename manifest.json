@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Share Home 1 (AUTOFILL TOOL)",
+    "name": "FujiE 1st paragraph sample (AUTOFILL TOOL - TrHgTung)",
     "version": "1.0",
     "permissions": ["storage", "activeTab", "scripting", "contextMenus"],
     "background": {
