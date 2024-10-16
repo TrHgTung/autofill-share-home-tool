@@ -2,7 +2,7 @@
 <h2>GIỚI THIỆU</h2>
 
 <h6>Phiên bản: 1.0 - Chỉ dành cho trình duyệt Chromium</h6>
-<p>Một hệ thống nhằm lưu trữ nhiều nội dung thư điện tử theo danh sách và cho phép gửi đi đồng loạt </p>
+<p>Một extension dạng service worker chạy với trình duyệt nhân Chromium, giúp đơn giản hóa việc nhập liệu cho các biểu mẫu với số lượng lớn </p>
 
 - Chromium Browser là gì? - https://en.wikipedia.org/wiki/Chromium_(web_browser)#Browsers_based_on_Chromium (Browsers based on Chromium) <br>
 
@@ -10,13 +10,11 @@
 
 - Extension là gì? - https://vi.wikipedia.org/wiki/Ti%E1%BB%87n_%C3%ADch_m%E1%BB%9F_r%E1%BB%99ng_tr%C3%ACnh_duy%E1%BB%87t (Tiện ích mở rộng trình duyệt) <br><br>
 
-<h2>CÁC TÍNH NĂNG</h2>
-<h4>Phía Người dùng:</h4>
-- Tự động điền vào các trường HTML input type="text" hoặc các trường HTML textarea
+<h2>CHỨC NĂNG CHÍNH</h2>
+
+> Tự động điền vào các trường HTML input type="text" hoặc các trường HTML textarea
 
 <br>
-
-> Xem chi tiết [ở đây](##MÔ-TẢ-CHỨC-NĂNG)
 
 ## MÔ TẢ CHỨC NĂNG
 
@@ -66,3 +64,10 @@ Trỏ chuột đến các trường cho phép nhập liệu -> Nhấn chuột ph
 
 <img src="./Readme/manhinh/1.png" ><br>
 <img src="./Readme/manhinh/2.png" >
+
+- Cách để thêm nhiều hơn 3 lựa chọn:
+
+  - File JSON: Thêm các giá trị content4, content5,...
+  - File background.js: Bỏ comment các dòng đã bị comment // (Ngoại trừ các dòng full Tiếng Việt - dùng để ghi chú code)
+
+- Open Source - No license
