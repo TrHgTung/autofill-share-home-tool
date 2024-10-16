@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "Auto Form Filler",
+    "version": "1.0",
+    "permissions": ["storage", "activeTab", "scripting", "contextMenus"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "host_permissions": [
+      "*://*/*"
+    ]
+  }
+  
