@@ -40,9 +40,25 @@
 
 Yêu cầu duy nhất: phải sử dụng trình duyệt Chromium (danh sách trình duyệt Chromium - xem lại ở trên. Ví dụ: Google Chrome, Microsoft Edge, Brave, Opera, ...)
 
-<h2>CÁCH CÀI ĐẶT EXTENSION</h2>
+- Tải xuống source, sau đó giải nén và ghi nhớ vị trí thư mục chứa source
 
-Vào cài đặt của trình duyệt (tùy vào từng trình duyệt khác nhau thì cách truy cập Settings cũng khác nhau) -> Quản lý tiện ích mở rộng (Extension) -> Tải các phần mở rộng chưa được đóng gói (Load unpacked) -> Chọn folder chứa source của Extension và Import vào -> Cho phép chạy toàn quyền & chạy ở chế độ duyệt web riêng tư
+<img src="./Readme/manhinh/4.png" ><br>
+
+- Thay đổi các nội dung cần thiết (content) trong file data.json
+
+<img src="./Readme/manhinh/5.png" ><br>
+
+<h2>CÁCH CÀI ĐẶT EXTENSION VÀO TRÌNH DUYỆT</h2>
+
+- Bước 1: Vào cài đặt của trình duyệt (tùy vào từng trình duyệt khác nhau thì cách truy cập Settings cũng khác nhau) -> Quản lý tiện ích mở rộng (Extension) -> Tải các phần mở rộng chưa được đóng gói (Load unpacked)
+  <img src="./Readme/manhinh/6.png" ><br>
+  <img src="./Readme/manhinh/7.png" >
+
+- Bước 2: Trong cửa sổ Explorer hỏi chọn thư mục: Chọn folder chứa source của Extension và Import vào
+  <img src="./Readme/manhinh/7.png" >
+
+- Bước 3: Ở tên extension: Xem chi tiết (Details) Cho phép chạy toàn quyền & chạy ở chế độ duyệt web riêng tư
+  <img src="./Readme/manhinh/8.png" >
 
 <h2>CÁCH SỬ DỤNG EXTENSION</h2>
 
