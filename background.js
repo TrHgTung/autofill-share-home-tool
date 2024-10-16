@@ -2,11 +2,9 @@ chrome.runtime.onInstalled.addListener(() => {
     // Tạo context menu khi extension được cài đặt
     chrome.contextMenus.create({
         id: "fillForm",
-        title: "Fill Form",
+        title: "Nội dung Share Home 1",
         contexts: ["editable"] // Chỉ hiển thị menu khi click chuột phải vào trường input hoặc textarea
     });
-
-    console.log("Auto Form Filler Extension Installed");
 });
 
 // Hàm đọc file JSON từ local storage
@@ -33,9 +31,9 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 // Hàm sẽ điền dữ liệu vào trường đang được focus
 function autofillFocusedInput(formData) {
     const focusedElement = document.activeElement;
-    if (focusedElement && (focusedElement.tagName === "INPUT" || focusedElement.tagName === "TEXTAREA")) {
+    if (focusedElement && (focusedElement.tagName === "INPUT" || focusedElement.tagName === "TEXTAREA" || focusedElement.tagName === "DIV" || focusedElement.tagName === "P")) {
         focusedElement.value = formData.defaultText || "";
     } else {
-        console.log("No input or textarea is focused");
+        console.log("Không có trường dữ liệu nào được focús");
     }
 }

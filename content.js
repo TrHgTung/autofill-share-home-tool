@@ -2,7 +2,7 @@ let lastFocusedElement = null;
 
 // Lắng nghe sự kiện focus vào input hoặc textarea
 document.addEventListener('focusin', (event) => {
-    if (event.target.tagName === "input" || event.target.tagName === "textarea") {
+    if (event.target.tagName === "input" || event.target.tagName === "textarea" || event.target.tagName === "div" || event.target.tagName === "p") {
         lastFocusedElement = event.target;
     }
 });

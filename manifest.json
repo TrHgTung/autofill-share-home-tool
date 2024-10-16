@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Auto Form Filler",
+    "name": "Share Home 1 (AUTOFILL TOOL)",
     "version": "1.0",
     "permissions": ["storage", "activeTab", "scripting", "contextMenus"],
     "background": {
@@ -9,5 +9,4 @@
     "host_permissions": [
       "*://*/*"
     ]
-  }
-  
+}  
