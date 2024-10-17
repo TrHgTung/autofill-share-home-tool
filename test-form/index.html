@@ -21,15 +21,37 @@
 <body>
     <div class="container mt-5">
         <h2 class="mb-3 text-center">Form để test Auto fill êxtension</h2>
-        <div class="form-group mb-4">
-            <label for="exampleFormControlInput2" class="mb-1">Dưới đây là một Input Text:</label>
-              <input type="text" class="form-control" name="title" id="exampleFormControlInput2" placeholder="Chuột phải > Auto Fill Options (Chrome)" autocomplete="off">
-          </div>
+            <div class="form-group mb-4">
+                <label for="exampleFormControlInput2" class="mb-1">Dưới đây là một Input Text:</label>
+                <input type="text" class="form-control" name="title" id="exampleFormControlInput2" placeholder="Chuột phải > Auto Fill Options (Chrome)" autocomplete="off">
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="exampleFormControlInput1" class="mb-1">Dưới đây là một Input Password:</label>
+                <input type="password" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Password ****" autocomplete="off">
+            </div>
           
-          <div class="form-group mb-4">
-              <label for="exampleFormControlTextarea3" class="mb-1">Dưới đây là một cái TextArea:</label>
-              <textarea name="paragraph" class="form-control" name="paragraph" id="exampleFormControlTextarea3" rows="3" autocomplete="off"></textarea>
-          </div>
+            <div class="form-group mb-4">
+                <label for="exampleFormControlTextarea3" class="mb-1">Dưới đây là một cái TextArea:</label>
+                <textarea name="paragraph" class="form-control" name="paragraph" id="exampleFormControlTextarea3" rows="3" autocomplete="off"></textarea>
+            </div>
     </div>
+    <script>
+        // document.getElementById('exampleFormControlInput1').addEventListener('copy', function(e) {
+        //     e.preventDefault();
+        //     alert('Không được phép copy mật khẩu!');
+        // });
+
+            document.getElementById('exampleFormControlInput1').addEventListener('paste', function(e) {
+            e.preventDefault();
+            alert('Không được phép paste mật khẩu!');
+        });
+
+        //     document.getElementById('exampleFormControlInput1').addEventListener('cut', function(e) {
+        //     e.preventDefault();
+        //     alert('Không được phép cắt mật khẩu!');
+        // });
+
+    </script>
 </body>
 </html>
