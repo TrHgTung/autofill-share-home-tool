@@ -29,18 +29,18 @@ chrome.runtime.onInstalled.addListener(() => {
                 title: "Mẫu 3",
                 contexts: ["editable"]
             });
-            // chrome.contextMenus.create({
-            //     id: "fillForm4",
-            //     parentId: "parentFillForm",
-            //     title: "Mẫu 4",
-            //     contexts: ["editable"]
-            // });
-            // chrome.contextMenus.create({
-            //     id: "fillForm5",
-            //     parentId: "parentFillForm",
-            //     title: "Mẫu 5",
-            //     contexts: ["editable"]
-            // });
+            chrome.contextMenus.create({
+                id: "fillForm4",
+                parentId: "parentFillForm",
+                title: "Mẫu 4",
+                contexts: ["editable"]
+            });
+            chrome.contextMenus.create({
+                id: "fillForm5",
+                parentId: "parentFillForm",
+                title: "Mẫu 5",
+                contexts: ["editable"]
+            });
             // chrome.contextMenus.create({
             //     id: "fillForm6",
             //     parentId: "parentFillForm",
@@ -66,12 +66,12 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
             } else if (info.menuItemId === "fillForm3") {
                 contentToFill = formData.content3;
             }
-            // else if (info.menuItemId === "fillForm4") {
-            //     contentToFill = formData.content4;
-            // }
-            // else if (info.menuItemId === "fillForm5") {
-            //     contentToFill = formData.content5;
-            // }
+            else if (info.menuItemId === "fillForm4") {
+                contentToFill = formData.content4;
+            }
+            else if (info.menuItemId === "fillForm5") {
+                contentToFill = formData.content5;
+            }
             // else if (info.menuItemId === "fillForm6") {
             //     contentToFill = formData.content6;
             // }
