@@ -44,135 +44,136 @@ chrome.runtime.onInstalled.addListener(() => {
             chrome.contextMenus.create({
                 id: "fillForm6",
                 parentId: "parentFillForm",
-                title: "email",
+                title: "Content FujiMaster (ngắn)",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm7",
                 parentId: "parentFillForm",
-                title: "password",
+                title: "email",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm8",
                 parentId: "parentFillForm",
-                title: "long_brand",
+                title: "password",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm9",
                 parentId: "parentFillForm",
-                title: "short_brand",
+                title: "long_brand",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm10",
                 parentId: "parentFillForm",
-                title: "firstname",
+                title: "short_brand",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm11",
                 parentId: "parentFillForm",
-                title: "lastname",
+                title: "firstname",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm12",
                 parentId: "parentFillForm",
-                title: "Giới thiệu ngắn (Có dấu)",
+                title: "lastname",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm13",
                 parentId: "parentFillForm",
-                title: "Giới thiệu dài (Có dấu)",
+                title: "Giới thiệu ngắn (Có dấu)",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm14",
                 parentId: "parentFillForm",
-                title: "Giới thiệu ngắn (Không dấu)",
+                title: "Giới thiệu dài (Có dấu)",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm15",
                 parentId: "parentFillForm",
-                title: "Giới thiệu dài (Không dấu)",
+                title: "Giới thiệu ngắn (Không dấu)",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm16",
                 parentId: "parentFillForm",
-                title: "Website (dienmaygiadungsaigon.vn)",
+                title: "Giới thiệu dài (Không dấu)",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm17",
                 parentId: "parentFillForm",
-                title: "Username 1 (dienmaygiadungsaigon)",
+                title: "Website (dienmaygiadungsaigon.vn)",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm18",
                 parentId: "parentFillForm",
-                title: "Username 2 (thay thế: dienmaygiadungsaigonvn)",
+                title: "Username 1 (dienmaygiadungsaigon)",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm19",
                 parentId: "parentFillForm",
-                title: "Username 3 (thay thế: ctysaigonfuji)",
+                title: "Username 2 (thay thế: dienmaygiadungsaigonvn)",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm20",
                 parentId: "parentFillForm",
-                title: "Sinh nhật (10/10/1990)",
+                title: "Username 3 (thay thế: ctysaigonfuji)",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm21",
                 parentId: "parentFillForm",
-                title: "Địa chỉ (Có dấu)",
+                title: "Sinh nhật (10/10/1990)",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm22",
                 parentId: "parentFillForm",
-                title: "Địa chỉ (Không dấu)",
+                title: "Địa chỉ (Có dấu)",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm23",
                 parentId: "parentFillForm",
-                title: "Số điện thoại",
+                title: "Địa chỉ (Không dấu)",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm24",
                 parentId: "parentFillForm",
-                title: "Hashtag",
+                title: "Số điện thoại",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm25",
                 parentId: "parentFillForm",
-                title: "Mã ZIP bưu điện",
+                title: "Hashtag",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm26",
                 parentId: "parentFillForm",
+                title: "Mã ZIP bưu điện",
+                contexts: ["editable"]
+            });
+            chrome.contextMenus.create({
+                id: "fillForm27",
+                parentId: "parentFillForm",
                 title: "Link Map CID (nếu có)",
                 contexts: ["editable"]
             });
-            // chrome.contextMenus.create({
-            //     id: "fillForm26",
-            //     parentId: "parentFillForm",
-            //     title: "Link Map CID (nếu có)",
-            //     contexts: ["editable"]
-            // });
+
             // chrome.contextMenus.create({
             //     id: "fillForm26",
             //     parentId: "parentFillForm",
@@ -205,66 +206,69 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
                 contentToFill = formData.content5;
             }
             else if (info.menuItemId === "fillForm6") {
-                contentToFill = formData.email;
+                contentToFill = formData.content6;
             }
             else if (info.menuItemId === "fillForm7") {
-                contentToFill = formData.password;
+                contentToFill = formData.email;
             }
             else if (info.menuItemId === "fillForm8") {
-                contentToFill = formData.long_brand;
+                contentToFill = formData.password;
             }
             else if (info.menuItemId === "fillForm9") {
-                contentToFill = formData.short_brand;
+                contentToFill = formData.long_brand;
             }
             else if (info.menuItemId === "fillForm10") {
-                contentToFill = formData.firstname;
+                contentToFill = formData.short_brand;
             }
             else if (info.menuItemId === "fillForm11") {
-                contentToFill = formData.lastname;
+                contentToFill = formData.firstname;
             }
             else if (info.menuItemId === "fillForm12") {
-                contentToFill = formData.gioi_thieu_ngan_CO_DAU;
+                contentToFill = formData.lastname;
             }
             else if (info.menuItemId === "fillForm13") {
-                contentToFill = formData.gioi_thieu_dai_CO_DAU;
+                contentToFill = formData.gioi_thieu_ngan_CO_DAU;
             }
             else if (info.menuItemId === "fillForm14") {
-                contentToFill = formData.gioi_thieu_ngan_KHONG_DAU;
+                contentToFill = formData.gioi_thieu_dai_CO_DAU;
             }
             else if (info.menuItemId === "fillForm15") {
-                contentToFill = formData.gioi_thieu_dai_KHONG_DAU;
+                contentToFill = formData.gioi_thieu_ngan_KHONG_DAU;
             }
             else if (info.menuItemId === "fillForm16") {
-                contentToFill = formData.website;
+                contentToFill = formData.gioi_thieu_dai_KHONG_DAU;
             }
             else if (info.menuItemId === "fillForm17") {
-                contentToFill = formData.username1;
+                contentToFill = formData.website;
             }
             else if (info.menuItemId === "fillForm18") {
-                contentToFill = formData.username2;
+                contentToFill = formData.username1;
             }
             else if (info.menuItemId === "fillForm19") {
-                contentToFill = formData.username3;
+                contentToFill = formData.username2;
             }
             else if (info.menuItemId === "fillForm20") {
-                contentToFill = formData.birthday;
+                contentToFill = formData.username3;
             }
             else if (info.menuItemId === "fillForm21") {
-                contentToFill = formData.address_CO_DAU;
+                contentToFill = formData.birthday;
             }
             else if (info.menuItemId === "fillForm22") {
-                contentToFill = formData.address_KHONG_DAU;
+                contentToFill = formData.address_CO_DAU;
             }
             else if (info.menuItemId === "fillForm23") {
-                contentToFill = formData.phone;
+                contentToFill = formData.address_KHONG_DAU;
             }
             else if (info.menuItemId === "fillForm24") {
-                contentToFill = formData.hashtag;
+                contentToFill = formData.phone;
             }
             else if (info.menuItemId === "fillForm25") {
-                contentToFill = formData.zip_code_postal_code;
+                contentToFill = formData.hashtag;
             }
             else if (info.menuItemId === "fillForm26") {
+                contentToFill = formData.zip_code_postal_code;
+            }
+            else if (info.menuItemId === "fillForm27") {
                 contentToFill = formData.GoogleMap_link_CID;
             }
             // else if (info.menuItemId === "fillForm6") {
