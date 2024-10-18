@@ -1,16 +1,13 @@
 chrome.runtime.onInstalled.addListener(() => {
-    // Tạo context menu gốc
     chrome.contextMenus.create({
         id: "parentFillForm",
         title: "Tự động điền dữ liệu",
-        contexts: ["editable"] // Chỉ hiện menu khi click chuột phải vào trường input hoặc textarea
+        contexts: ["editable"]
     });
 
-    // Đọc dữ liệu từ file JSON để tạo các mục con trong menu
     fetch(chrome.runtime.getURL('data.json'))
         .then((response) => response.json())
         .then((data) => {
-            // Tạo các mục con trong menu dựa trên nội dung của file JSON
             chrome.contextMenus.create({
                 id: "fillForm1",
                 parentId: "parentFillForm",
@@ -177,21 +174,55 @@ chrome.runtime.onInstalled.addListener(() => {
             // chrome.contextMenus.create({
             //     id: "fillForm26",
             //     parentId: "parentFillForm",
-            //     title: "Link Map CID (nếu có)",
+            //     title: "Nhớ sửa lại chỗ này tùy ý nha",
+            //     contexts: ["editable"]
+            // });
+            // chrome.contextMenus.create({
+            //     id: "fillForm27",
+            //     parentId: "parentFillForm",
+            //     title: "Nhớ sửa lại chỗ này tùy ý nha",
+            //     contexts: ["editable"]
+            // });
+            // chrome.contextMenus.create({
+            //     id: "fillForm28",
+            //     parentId: "parentFillForm",
+            //     title: "Nhớ sửa lại chỗ này tùy ý nha",
+            //     contexts: ["editable"]
+            // });
+            // chrome.contextMenus.create({
+            //     id: "fillForm29",
+            //     parentId: "parentFillForm",
+            //     title: "Nhớ sửa lại chỗ này tùy ý nha",
+            //     contexts: ["editable"]
+            // });
+            // chrome.contextMenus.create({
+            //     id: "fillForm30",
+            //     parentId: "parentFillForm",
+            //     title: "Nhớ sửa lại chỗ này tùy ý nha",
+            //     contexts: ["editable"]
+            // });
+            // chrome.contextMenus.create({
+            //     id: "fillForm31",
+            //     parentId: "parentFillForm",
+            //     title: "Nhớ sửa lại chỗ này tùy ý nha",
+            //     contexts: ["editable"]
+            // });
+            // chrome.contextMenus.create({
+            //     id: "fillForm32",
+            //     parentId: "parentFillForm",
+            //     title: "Nhớ sửa lại chỗ này tùy ý nha",
             //     contexts: ["editable"]
             // });
         })
         .catch((error) => console.error("Error loading form data:", error));
 });
 
-// Xử lý sự kiện khi người dùng chọn các mục từ context menu
 chrome.contextMenus.onClicked.addListener((info, tab) => {
     fetch(chrome.runtime.getURL('data.json'))
         .then((response) => response.json())
         .then((formData) => {
             let contentToFill = "";
 
-            // Kiểm tra mục nào được chọn và lấy nội dung tương ứng từ file JSON
             if (info.menuItemId === "fillForm1") {
                 contentToFill = formData.content1;
             } else if (info.menuItemId === "fillForm2") {
@@ -271,14 +302,22 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
             else if (info.menuItemId === "fillForm27") {
                 contentToFill = formData.GoogleMap_link_CID;
             }
-            // else if (info.menuItemId === "fillForm6") {
-            //     contentToFill = formData.content6;
+            // else if (info.menuItemId === "fillForm28") {
+            //     contentToFill = formData.fillForm28;
             // }
-            // else if (info.menuItemId === "fillForm6") {
-            //     contentToFill = formData.content6;
+            // else if (info.menuItemId === "fillForm29") {
+            //     contentToFill = formData.fillForm29;
+            // }
+            // else if (info.menuItemId === "fillForm30") {
+            //     contentToFill = formData.fillForm30;
+            // }
+            // else if (info.menuItemId === "fillForm31") {
+            //     contentToFill = formData.fillForm31;
+            // }
+            // else if (info.menuItemId === "fillForm32") {
+            //     contentToFill = formData.fillForm32;
             // }
 
-            // Điền nội dung vào trường input hoặc textarea hiện đang focus
             chrome.scripting.executeScript({
                 target: { tabId: tab.id },
                 function: autofillFocusedInput,
@@ -288,7 +327,6 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
         .catch((error) => console.error("Error fetching form data:", error));
 });
 
-// Hàm điền nội dung vào trường input hoặc textarea
 function autofillFocusedInput(content) {
     const focusedElement = document.activeElement;
     if (focusedElement && ((focusedElement.tagName === "INPUT" || focusedElement.tagName === "TEXTAREA" || focusedElement.tagName === "DIV" || focusedElement.tagName === "P"))) {
