@@ -11,19 +11,19 @@ chrome.runtime.onInstalled.addListener(() => {
             chrome.contextMenus.create({
                 id: "fillForm1",
                 parentId: "parentFillForm",
-                title: "Mẫu Share Home 1",
+                title: "Menu thứ nhất",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm2",
                 parentId: "parentFillForm",
-                title: "Mẫu Share Home 2",
+                title: "Menu thứ 2",
                 contexts: ["editable"]
             });
             chrome.contextMenus.create({
                 id: "fillForm3",
                 parentId: "parentFillForm",
-                title: "Mẫu Share Home 3",
+                title: "Menu thứ 3",
                 contexts: ["editable"]
             });
 
